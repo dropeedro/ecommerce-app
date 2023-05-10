@@ -1,0 +1,155 @@
+@import '../../css-config/mixins.scss';
+
+.container-cart{
+    position: relative;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    @include md{
+        height: calc(120vh - 80px);
+    }
+    .content-cart{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        position: relative;
+        @include md{
+            flex-direction: row;
+            max-width: 1200px;
+
+        }
+        .column-wrapper{
+            margin-top: -150px;
+            display: grid;
+            grid-template-columns: 1fr;
+            @media screen and (min-width: 768px) {
+                grid-template-columns: 1.2fr .8fr;
+            }
+            gap: 40px;
+            background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+            .box{
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 30px;
+                table{
+                    width: 100%;
+                    th{
+                        padding-left: 20px;
+                        text-align: left;
+                        text-transform: uppercase;
+                        border-bottom: 1px solid #ccc;
+                        color: #ccc;
+                        font-weight: 600;
+                        font-size: 10px;
+                    }
+                    .productInfoCell{
+                        display: inline-block;
+                        text-align: center;
+                        // border-top: 1px solid rgba(0,0,0,.1);
+                        padding: 10px 0;
+                        .productImageBox{
+                            width: 70px;
+                            height: 100px;
+                            padding: 2px;
+                            border: 1px solid rgba(0, 0, 0, 0.1);
+                            display:flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 10px;
+                            img{
+                                width: 100px;
+                                height: 100px;
+                            }
+                            @media screen and (min-width: 768px) {
+                                padding: 10px;
+                                width: 100px;
+                                height: 100px;
+                                img{
+                                max-width: 80px;
+                                max-height: 80px;
+                                }
+                            }
+                        }
+                    }
+    
+                    .quantity-buttons {
+                        width: fit-content;
+                        display: flex;
+                        border: 2px solid rgba(0, 0, 0, 0.2);
+                        margin-right: 10px;
+                        height: 50px;
+                        span {
+                            font-size: 18px;
+                            width: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+                            color: #6b6b6b;
+                            &:nth-child(1) {
+                                border-right: 2px solid rgba(0, 0, 0, 0.2);
+                            }
+                            &:nth-child(2) {
+                                width: 60px;
+                            }
+                            &:nth-child(3) {
+                                border-left: 2px solid rgba(0, 0, 0, 0.2);
+                            }
+                        }
+                    }
+
+                    .sub-total{
+                        font-weight: 800;
+                        font-size: 16px;
+                        text-align: right;
+                        padding-right: 30px;
+                        &.v2{
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .bar{
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                }
+    
+                input{
+                    width: 100%;
+                    padding: 5px;
+                    margin-bottom: 5px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-sizing:border-box;
+                }
+                .city-holder{
+                    display:flex;
+                    gap: 5px;
+                }
+                .discount-code{
+                    margin: 40px 0 40px 0;
+                }
+                .banner-cta{
+                    text-align: center;
+                    margin-top: 20px;
+                    text-transform: uppercase;
+                    font-size: 15px;
+                    font-weight: 500;
+                    border: 2px solid white;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+                    color: white;
+                    &.v2{
+                        margin-top: 0;
+                    }
+                    &:hover{
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+}
+
