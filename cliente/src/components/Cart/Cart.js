@@ -65,7 +65,7 @@ const Cart = ({setShowCart}) => {
                         <span className='text total'>{convertToCLP(cartSubTotal)} </span>
                     </div>
                     <div className='button'>
-                        <button className='checkout-btn'>Ir al checkout</button>
+                        <button className='checkout-btn' onClick={() => navigate('/checkout')}>Ir al checkout</button>
                     </div>
                 </div>
             </>}

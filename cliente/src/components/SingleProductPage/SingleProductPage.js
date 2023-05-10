@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import "./SingleProductPage.scss";
 import Layout from '../Layout/Layout';
-import { FaCartPlus, FaFacebookF, FaInstagram, FaTwitter } from '../../../node_modules/react-icons/fa/index.esm';
+import { FaCartPlus, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa/index.esm';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import {useCart} from '../../context/cart'

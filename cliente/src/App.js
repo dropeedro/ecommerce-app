@@ -28,6 +28,7 @@ import Cart from './pages/Cart';
 import SingleProductPage from './components/SingleProductPage/SingleProductPage';
 import Category from './components/Category/Category';
 import Home from './components/Home/Home';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/catalogo' element={<Catalogo/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/contacto' element={<Contacto/>}/>
         <Route path='/*' element={<Error/>}/>
       </Routes>
