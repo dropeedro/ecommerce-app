@@ -3,27 +3,41 @@ import { useCart } from '../../context/cart';
 import { useAuth } from '../../context/auth';
 import './Checkout.scss'
 import Layout from '../Layout/Layout';
+import LoadingSpinner from '../LoadingSpinner';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
 
-    const [cart, setCart] = useCart()
+    const [cart, setCart] = useCart();
     const [cartSubTotal, setCartSubTotal] = useState(0)
     const [quantityItem, setQuantityItem] = useState(1)
-    const [auth, setAuth] = useAuth()
+    const [auth, setAuth] = useAuth();
     const [products,setProducts] = useState([]);
-    const [name,setName] = useState('');
-    const [email,setEmail] = useState('');
-    const [city,setCity] = useState('');
-    const [postalCode,setPostalCode] = useState('');
-    const [streetAddress,setStreetAddress] = useState('');
-    const [country,setCountry] = useState('');
-    const [isSuccess,setIsSuccess] = useState(false);
+    const [name, setName] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [email, setEmail] = useState("");  
+    const [phone, setPhone] = useState("");
+    const [address, setAddress] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         let subTotal = 0
         cart?.map(item => subTotal += item.price * item.quantityItem)
         setCartSubTotal(subTotal)
     }, [cart]);
+
+    useEffect(() => {
+      if(auth?.user){
+        const {name, lastname, email, phone, address} = auth?.user
+        setName(name)
+        setLastName(lastname)
+        setEmail(email)
+        setPhone(phone)
+        setAddress(address)
+      }
+  },[auth?.user])
+    
+  
 
     const handleCartProductQuantity = (type, product) => {
         let items = [...cart];
@@ -91,43 +105,78 @@ const Checkout = () => {
           </div>
           {!!cart?.length && (
             <div className='box'>
-              <h2>Información de envío</h2>
-              <input type="text"
-                     placeholder="Nombre Completo"
-                    //  value={name}
+              <h2>Información de envío*</h2>
+              {
+                !auth.user ? (
+                <>
+                  <input readOnly type="text"
+                     placeholder="Nombre"
+                    //  value=""
                      name="name"
-                     onChange={console.log('name')} />
-              <input type="text"
-                     placeholder="Email"
-                    //  value={email}
-                     name="email"
-                     onChange={console.log('email')}/>
-            <div className='city-holder'>
-                <input type="text"
-                       placeholder="Ciudad"
-                       value={city}
-                       name="city"
-                       onChange={console.log('city')}/>
-                <input type="text"
-                       placeholder="Codigo Postal"
-                       value={postalCode}
-                       name="postalCode"
-                       onChange={console.log('city')}/>
+                     onChange={(e) => setName(e.target.value)} />
+                  <input readOnly type="text"
+                        placeholder="Apellidos"
+                        // value=""
+                        name="lastname"
+                        onChange={(e) => setLastName(e.target.value)} />
+                  <input readOnly type="text"
+                        placeholder="Email"
+                        // value={email}
+                        name="email"
+                        onChange={(e) => setEmail(e.target.value)}/>
+                <div className='city-holder'>
+                    <input readOnly type="text"
+                          placeholder="Telefono"
+                          // value={phone}
+                          name="phone"
+                          onChange={(e) => setPhone(e.target.value)}/>
+                    <input readOnly type="text"
+                          placeholder="Dirección"
+                          // value={address}
+                          name="address"
+                          onChange={(e) => setAddress(e.target.value)}/>
+                  </div>
+                  <div className='banner-cta'>Comprar como Invitado</div>
+                  
+                </>
+                ) : (
+                <>
+                <input readOnly type="text"
+                      placeholder="Nombre"
+                      value={name}
+                      name="name"
+                      onChange={(e) => setName(e.target.value)} />
+                <input readOnly type="text"
+                      placeholder="Apellidos"
+                      value={lastname}
+                      name="lastname"
+                      onChange={(e) => setLastName(e.target.value)} />
+                <input readOnly type="text"
+                      placeholder="Email"
+                      value={email}
+                      name="email"
+                      onChange={(e) => setEmail(e.target.value)}/>
+              <div className='city-holder'>
+                  <input readOnly type="text"
+                        placeholder="Telefono"
+                        value={phone}
+                        name="phone"
+                        onChange={(e) => setPhone(e.target.value)}/>
+                  <input readOnly type="text"
+                        placeholder="Dirección"
+                        value={address}
+                        name="address"
+                        onChange={(e) => setAddress(e.target.value)}/>
               </div>
-              <input type="text"
-                     placeholder="Dirección"
-                    //  value={streetAddress}
-                     name="streetAddress"
-                     onChange={console.log('street')}/>
-
-                <div className='discount-code'>
-                    <span><b>Código de descuento</b></span>
-                    <input type="text" placeholder='Ingrese un código de descuento'/>
-                </div>
-                    
-
+              <small>*Para cambiar los datos de facturación, vaya a su <span className='profile-redirection' onClick={() => navigate('/dashboard/user/profile')}>perfíl</span></small>
+              <div className='discount-code'>
+                  <span><b>Código de descuento</b></span>
+                  <input type="text" placeholder='Ingrese un código de descuento'/>
+              </div> 
               <div className='banner-cta'>Ir a pagar</div>
-              <div className='banner-cta v2'>Comprar como Invitado</div>
+                </>
+                )
+              }
             </div>
           )}
         </div>

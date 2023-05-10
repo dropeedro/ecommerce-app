@@ -7,6 +7,7 @@ import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from 'react-hot-toast'
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [loadingData, setLoadingData] = useState(false);
   const navigate = useNavigate();
   const [cart, setCart] = useCart(); 
 
@@ -38,6 +40,7 @@ const HomePage = () => {
   //get products
   const getAllProducts = async () => {
     try {
+      setLoadingData(true)
       setLoading(true);
       const { data } = await axios.get(`/api/v1/products/product-list/${page}`);
       setLoading(false);
@@ -139,7 +142,7 @@ const HomePage = () => {
           <div className="col-10 ">
             <h1 className="text-center">Todos los productos</h1>
             <div className="d-flex flex-wrap justify-content-center">
-              {products?.map((p) => (
+              {loadingData ? products?.map((p) => (
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img src={`/api/v1/products/product-photo/${p._id}`} className="card-img-top" alt={p.name}
                   />
@@ -159,7 +162,7 @@ const HomePage = () => {
                                                                         }}>Agregar al carro</button>
                   </div>
                 </div>
-              ))}
+              )) : <LoadingSpinner/>}
             </div>
             <div className="m-2 p-3">
               {products && products.length < total && (
