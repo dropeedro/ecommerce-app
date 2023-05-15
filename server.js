@@ -7,8 +7,9 @@ import connectDB from './config/db.js';
 import authRoute from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/productRoutes.js';
+import stripeRoutes from './routes/stripeRoutes.js';
 import cors from 'cors';
-
+import webpayPlusRouter from './routes/webpayPlusRoute.js'
 
 //Env config
 dotenv.config()
@@ -29,6 +30,8 @@ app.use(morgan('dev'))
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/category', categoryRoutes)
 app.use('/api/v1/products', productRoutes)
+app.use('/api/v1/stripe', stripeRoutes)
+app.use('/webpay_plus', webpayPlusRouter)
 
 //rest api
 app.get('/', (req,res) => {

@@ -21,7 +21,7 @@
 
         }
         .column-wrapper{
-            margin-top: -150px;
+            margin: 20px;
             display: grid;
             grid-template-columns: 1fr;
             @media screen and (min-width: 768px) {
@@ -35,6 +35,7 @@
                 padding: 30px;
                 table{
                     width: 100%;
+                    margin-bottom: 20px;
                     th{
                         padding-left: 20px;
                         text-align: left;
@@ -43,6 +44,26 @@
                         color: #ccc;
                         font-weight: 600;
                         font-size: 10px;
+                        .shipping-title{
+                            text-align: left;
+                            font-size: 12px;
+                            margin: 5px 0 5px 0;
+                            color: black;
+                            padding: 10px 5px;
+                        }
+                        .coupon-input{
+                            text-transform: uppercase;
+                        }
+                        .select-shipping{
+                            color: black;
+                            font-size: 12px;
+                            .ant-select-selection-item {
+                                font-size: 12px;
+                            }
+                            .ant-select-item-option-content {
+                                font-size: 12px;
+                            }
+                        }
                     }
                     .productInfoCell{
                         display: inline-block;
@@ -105,9 +126,35 @@
                         font-size: 16px;
                         text-align: right;
                         padding-right: 30px;
+                        color: black;
                         &.v2{
                             text-align: left;
                         }
+                    }
+
+                    .sub-total-final-text{
+                        color: black;
+                        font-weight: 600;
+                        font-size: 10px;
+                        margin-top: 10px;
+                        text-transform: uppercase;
+                        // color: #6b6b6b;
+                        text-align: center;
+                        padding-left: 20px;
+                        padding-top: 20px;
+                        margin-bottom: 20px;
+                    }
+                    .sub-total-final{
+                        font-weight: 600;
+                        font-size: 16px;
+                        margin-top: 10px;
+                        margin-left: 20px;
+                        text-transform: uppercase;
+                        color: black;
+                        text-align: center;
+                        padding-left: 20px;
+                        padding-top: 20px;
+                        margin-bottom: 25px;
                     }
                 }
 
@@ -138,6 +185,28 @@
                 .discount-code{
                     margin: 40px 0 40px 0;
                 }
+                .sec-heading{
+                    margin-top: 30px;
+                    margin-bottom: 20px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    @include md{
+                        // margin-bottom: 25px;
+                        font-size: 12px;
+                    }
+                    &:after{
+                        content: "";
+                        display: block;
+                        margin-top: 5px;
+                        width: 50px;
+                        height: 3px;
+                        background-color: #8e2de2;
+                        @include md{
+                            margin-top: 10px;
+                        }
+                    }
+                }
                 .banner-cta{
                     text-align: center;
                     margin-top: 20px;
@@ -149,9 +218,9 @@
                     cursor: pointer;
                     background-image: linear-gradient(to right, #8e2de2, #4a00e0);
                     color: white;
-                    // &.v2{
-                    //     margin-top: 0;
-                    // }
+                    &.v2{
+                        margin-top: 5px;
+                    }
                     &:hover{
                         opacity: 0.6;
                     }

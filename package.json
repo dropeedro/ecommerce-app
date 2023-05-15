@@ -25,9 +25,13 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.5",
     "morgan": "^1.10.0",
+    "node": "^18.16.0",
     "nodemon": "^2.0.22",
     "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
     "sass": "^1.62.1",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "stripe": "^12.5.0",
+    "transbank-sdk": "^4.0.0"
   }
 }

@@ -87,6 +87,7 @@ export const loginController = async(req,res) => {
                 status : true,
                 message : 'Inicio de sesión exitoso',
                 user : {
+                    _id : user._id,
                     name : user.name,
                     lastname : user.lastname,
                     email : user.email,
