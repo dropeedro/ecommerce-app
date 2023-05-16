@@ -245,10 +245,10 @@ const Checkout = () => {
                         onChange={(e) => setAddress(e.target.value)}/>
               </div>
               <small>*Para cambiar los datos de facturación, vaya a su <span className='profile-redirection' onClick={() => navigate('/dashboard/user/profile')}>perfíl</span></small>
-              <div className='discount-code'>
+              {/* <div className='discount-code'>
                   <span><b>Código de descuento</b></span>
                   <input type="text" placeholder='Ingrese un código de descuento'/>
-              </div> 
+              </div>  */}
               <form action="/create-checkout-session">
                 {/* <div className='banner-cta'>Ir a pagar</div> */}
                 <PayButton cartItems = {cart} subTotal={subTotal} buyOrder = {buyOrder} sessionId = {sessionId}/>

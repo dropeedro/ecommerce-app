@@ -7,8 +7,9 @@ import asyncHandler from '../util/async_handler.js';
 export const create = asyncHandler(async function (request, response, next) {
   let buyOrder = "O-" + Math.floor(Math.random() * 10000) + 1;
   let sessionId = "S-" + Math.floor(Math.random() * 10000) + 1;
-  let amount = Math.floor(Math.random() * 1000) + 1001;
-  // const amount = request.body
+  const subTotal = parseFloat(request.query.subTotal)
+  // let amount = Math.floor(Math.random() * 1000) + 1001;
+  let amount = subTotal
   let returnUrl =
     request.protocol + "://" + request.get("host") + "/webpay_plus/commit";
 
@@ -18,7 +19,6 @@ export const create = asyncHandler(async function (request, response, next) {
     amount,
     returnUrl
   );
-
   let token = createResponse.token;
   let url = createResponse.url;
 
