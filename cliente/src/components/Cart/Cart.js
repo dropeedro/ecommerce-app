@@ -40,7 +40,8 @@ const Cart = ({setShowCart}) => {
      }
 
   return (
-    <div className='cart-panel'>
+    // <div className='cart-panel'>
+    <div className={`cart-panel ${cart.length ? 'has-items' : ''}`}>
         <div className='opac-layer' onClick={() => setShowCart(false)}></div>
         <div className='cart-content'>
             <div className='cart-header'>

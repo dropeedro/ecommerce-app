@@ -10,6 +10,18 @@
     justify-content: flex-end;
     z-index: 99;
 
+    &.has-items {
+        .cart-content {
+          max-height: 100%; /* Ajusta este valor según tus necesidades */
+    
+          .cart-footer {
+            position: sticky;
+            bottom: 0;
+            background-color: white;
+          }
+        }
+      }
+
     .opac-layer{
         background: rgba(0, 0, 0, 0.5);
         position: absolute;
@@ -21,6 +33,7 @@
     
     .cart-content{
         height: 100%;
+        overflow: auto;
         width: 100%;
         background: white;
         position: relative;

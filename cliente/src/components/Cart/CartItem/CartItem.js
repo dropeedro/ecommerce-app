@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { MdClose } from 'react-icons/md'
 import "./CartItem.scss"
 import { useCart } from '../../../context/cart'
-import { Context } from '../../../context/cartContext'
 
 const CartItem = () => {
     const [cart, setCart] = useCart([])

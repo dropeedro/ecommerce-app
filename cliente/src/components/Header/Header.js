@@ -75,7 +75,7 @@ const Header = () => {
                 </>
                 )
               }
-            <li onClick={() => navigate('/categories')}>Categorias</li>
+            {/* <li onClick={() => navigate('/categories')}>Categorias</li> */}
         </ul>
         <div className='center' onClick={() => navigate("/")}><TbGuitarPick/>MUSICPRO</div>
         <div className='right'>

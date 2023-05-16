@@ -5,39 +5,48 @@ import SpinnerButton from '../../SpinnerButton';
 
 const PayButton = ({cartItems, subTotal}) => {
   const [viewData, setViewData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [amount, setAmount] = useState(10)
 
   useEffect(() => {
-    setTimeout(() => {
-    const createTransaction = async () => {
-      try {
-        if(subTotal !== 0) {
-            const {data} =await axios.get(`${process.env.REACT_APP_API}/webpay_plus/create?subTotal=${subTotal}`)
-            console.log(data);
+    setAmount(subTotal);
+    setIsLoading(false);
+  }, [subTotal]);
 
-            if (!data) {
-              throw new Error('Error al crear la transacción');
-            }
-            setTimeout(() => {
-                setViewData(data);
-            }, 2000);
-        }
+  useEffect(() => {
+    const createTransaction = async () => {
+      console.log(amount);
+      if(amount === 0 || amount  === undefined){
+        return;
+      }
+      try {
+            const {data} =await axios.get(`${process.env.REACT_APP_API}/webpay_plus/create?subTotal=${amount}`)
+            console.log(data);
+            setViewData(data);
+            setIsLoading(false)
+
       } catch (error) {
         console.log(error);
+        setError('Error al crear la transacción');
+        setIsLoading(false)
       }
     };
 
     createTransaction();
-  }, 2000);
-  }, [subTotal]);
+  }, [amount]);
 
-  
-  // Utiliza los valores de viewData en tu componente de React
-  console.log(viewData);
-  if(!viewData){
+  if(isLoading){
     return <div className="pay-button"><SpinnerButton/></div>
-  }else{
-    const { token, url } = viewData;
+  }
+
+  if(error){
+    return <div className='pay-button'>Error : {error}</div>
+  }
+  const token = viewData?.token || '';
+  const url = viewData?.url || '';
     
+  //STRAPI INTEGRATION
     // const handleCheckOut = () =>{
     //     const url = `${process.env.REACT_APP_API}`
     //     // let images =  []
@@ -64,8 +73,6 @@ const PayButton = ({cartItems, subTotal}) => {
     </form>
     </>
   ) 
-}
-
 }
 
 export default PayButton

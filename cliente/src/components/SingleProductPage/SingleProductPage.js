@@ -6,7 +6,6 @@ import { FaCartPlus, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa/
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import {useCart} from '../../context/cart'
-import { Context } from '../../context/cartContext';
 
 import toast from 'react-hot-toast'
 
@@ -18,7 +17,6 @@ const SingleProductPage = () => {
     const [relatedProducts, setRelatedProducts] = useState([])
     const navigate = useNavigate()
     const [cart, setCart] = useCart([]); 
-    // const { handleAddToCart } = useContext(Context)
 
     //inicio
     useEffect(() => {

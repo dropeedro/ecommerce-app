@@ -211,7 +211,7 @@ const Checkout = () => {
                           onChange={(e) => setAddress(e.target.value)}/>
                   </div>
                   <div className="sec-heading">Cómo desea hacer la compra?</div>
-                  <div className='banner-cta'>Tengo una cuenta</div>
+                  <div className='banner-cta' onClick={() => navigate('/login-checkout')}>Tengo una cuenta</div>
                   <div className='banner-cta v2'>Comprar como Invitado</div>
                   
                 </>
