@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault()
         const objRegistro = {email, password}
         try {
-            const res = await axios.post(`/api/v1/auth/login`, objRegistro)
+            const res = await axios.post(`https://music-pro-sv7n.onrender.com/api/v1/auth/login`, objRegistro)
             if(res.data.status === true){
                 toast.success(res.data.message)
                 setAuth({
