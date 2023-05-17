@@ -212,7 +212,10 @@ const Checkout = () => {
                   </div>
                   <div className="sec-heading">Cómo desea hacer la compra?</div>
                   <div className='banner-cta' onClick={() => navigate('/login-checkout')}>Tengo una cuenta</div>
-                  <div className='banner-cta v2'>Comprar como Invitado</div>
+                  <label htmlFor="">Comprar como Invitado:</label>
+                  {/* <div className='banner-cta v2'> */}
+                    <PayButton cartItems = {cart} subTotal={subTotal} buyOrder = {buyOrder} sessionId = {sessionId}/>
+                  {/* </div> */}
                   
                 </>
                 ) : (
