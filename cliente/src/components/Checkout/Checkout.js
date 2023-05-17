@@ -183,28 +183,28 @@ const Checkout = () => {
               {
                 !auth.user ? (
                 <>
-                  <input readOnly type="text"
+                  <input type="text"
                      placeholder="Nombre"
                     //  value=""
                      name="name"
                      onChange={(e) => setName(e.target.value)} />
-                  <input readOnly type="text"
+                  <input type="text"
                         placeholder="Apellidos"
                         // value=""
                         name="lastname"
                         onChange={(e) => setLastName(e.target.value)} />
-                  <input readOnly type="text"
+                  <input type="text"
                         placeholder="Email"
                         // value={email}
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}/>
                 <div className='city-holder'>
-                    <input readOnly type="text"
+                    <input type="text"
                           placeholder="Telefono"
                           // value={phone}
                           name="phone"
                           onChange={(e) => setPhone(e.target.value)}/>
-                    <input readOnly type="text"
+                    <input type="text"
                           placeholder="Dirección"
                           // value={address}
                           name="address"
