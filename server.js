@@ -9,7 +9,13 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import stripeRoutes from './routes/stripeRoutes.js';
 import cors from 'cors';
-import webpayPlusRouter from './routes/webpayPlusRoute.js'
+import webpayPlusRouter from './routes/webpayPlusRoute.js';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //Env config
 dotenv.config()
@@ -32,6 +38,15 @@ app.use('/api/v1/category', categoryRoutes)
 app.use('/api/v1/products', productRoutes)
 app.use('/api/v1/stripe', stripeRoutes)
 app.use('/webpay_plus', webpayPlusRouter)
+
+//static files
+app.use(express.static(path.join(__dirname, './cliente/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './cliente/build/index.html'));
+});
+
+
 
 //rest api
 app.get('/', (req,res) => {
