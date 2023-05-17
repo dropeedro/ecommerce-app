@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout/Layout";
+import Layout from "../Layout/Layout";
+import './Catalogo.scss';
 
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
-import { Prices } from "../components/Prices";
+import { Prices } from "../Prices";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/cart";
+import { useCart } from "../../context/cart";
 import toast from 'react-hot-toast'
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 
-const HomePage = () => {
+const Catalogo = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -115,7 +116,7 @@ const HomePage = () => {
       <div className="container-fluid">
         <div className="row m-3">
           <div className="col-md-2 mt-5">
-            <h4 className="text-center">Filtrar por categoria</h4>
+            <h4 className="text-center">Filtrar por categoriaaa</h4>
             <div className="d-flex flex-column">
               {categories?.map((c) => (
                 <Checkbox key={c._id}onChange={(e) => handleFilter(e.target.checked, c._id)}>
@@ -178,4 +179,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Catalogo;

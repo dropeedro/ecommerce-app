@@ -1,6 +1,4 @@
 import {Routes, Route} from 'react-router-dom'
-import HomePage from './pages/HomePage';
-import Catalogo from './pages/Catalogo';
 import Contacto from './pages/Contacto';
 import Error from './pages/Error';
 import Registro from './pages/Auth/Registro';
@@ -20,9 +18,6 @@ import ContadorRoute from './components/Routes/ContadorRoute';
 import Shipping from './pages/Contador/Shipping';
 import RegisterPayment from './pages/Contador/RegisterPayment';
 import ContadorDashboard from './pages/Contador/ContadorDashboard';
-import Search from './pages/Search';
-import ProductDetail from './pages/ProductDetail';
-// import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
 import Cart from './pages/Cart';
 import SingleProductPage from './components/SingleProductPage/SingleProductPage';
@@ -30,19 +25,16 @@ import Category from './components/Category/Category';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import LoginCheckout from './pages/Auth/LoginCheckout';
+import Catalogo from './components/Catalogo/Catalogo';
 
 function App() {
   return (
     <>
       <Routes>
-        {/* <Route path='/' element={<HomePage/>}/> */}
         <Route path='/' element={<Home/>}/>
         <Route path='/catalogo' element={<Catalogo/>}/>
-        <Route path='/search' element={<Search/>}/>
-        {/* <Route path='/categories' element={<Categories/>}/> */}
         <Route path='/categories' element={<Category/>}/>
         <Route path='/category/:slug' element={<CategoryProduct/>}/>
-        {/* <Route path='/product/:slug' element={<ProductDetail />}/> */}
         <Route path='/product/:slug' element={<SingleProductPage />}/>
         <Route path='/dashboard' element={<PrivateFunction/>}>
           <Route path="user" element={<Dashboard/>}/>

@@ -16,7 +16,7 @@ const Home = () => {
             <Banner/>
             <div className="main-content">
                 <div className="layout">
-                    <Category/> 
+                    {/* <Category/>  */}
                     <Products/>
                 </div>
             </div>

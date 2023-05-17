@@ -36,9 +36,6 @@ const Footer = () => {
     const handleCatalogo = () => {
         navigate('/catalogo')
     }
-    const handleCategories = () => {
-        navigate('/categories')
-    }
 
   return (
     <footer className='footer'>
@@ -74,7 +71,6 @@ const Footer = () => {
                 <div className="title">Páginas</div>
                 <span className="text" onClick={handleHome}>Inicio</span>
                 <span className="text" onClick={handleCatalogo}>Catalogo</span>
-                <span className="text" onClick={handleCategories}>Categorias</span>
             </div>
         </div>
         <div className="bottom-bar">

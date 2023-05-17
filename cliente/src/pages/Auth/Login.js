@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useNavigate, useLocation} from 'react-router-dom'
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
+import './Login.scss';
 
 const Login = () => {
 
@@ -18,7 +19,7 @@ const Login = () => {
         const objRegistro = {email, password}
         try {
             const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, objRegistro)
-            if(res.data.status == true){
+            if(res.data.status === true){
                 toast.success(res.data.message)
                 setAuth({
                     ...auth,

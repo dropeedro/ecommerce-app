@@ -17,7 +17,7 @@ Y será desplegado en un heroku server
 ### Entra al directorio
 `cd ecommerce-app`
 ### Instala las dependencias necesarias para correr el proyecto local
-`npm build`
+`npm run build`
 > Esto intalará dependencias en el frontend y el backend, por lo que solo se hace una vez
 ### Tienes 3 opciones para correr el proyecto.
 `npm run server` (Levantará el servidor y podrás probar las api).

@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useNavigate, useLocation} from 'react-router-dom'
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/auth';
+import './Login.scss';
 
 const LoginCheckout = () => {
 
