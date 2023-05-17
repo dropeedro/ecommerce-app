@@ -13,10 +13,6 @@ import webpayPlusRouter from './routes/webpayPlusRoute.js';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 //Env config
 dotenv.config()
 
@@ -26,9 +22,18 @@ connectDB();
 //Rest object
 const app = express()
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+
 
 //middlewares
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: 'https://music-pro-sv7n.onrender.com', 
+    optionsSuccessStatus: 200
+  }));
+
 app.use(express.json())
 app.use(morgan('dev'))
 
