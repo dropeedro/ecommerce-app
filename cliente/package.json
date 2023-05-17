@@ -1,6 +1,6 @@
 {
   "name": "cliente",
-  "proxy": "http://localhost:8080",
+  "proxy": "https://music-pro-sv7n.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -28,12 +28,7 @@ const __dirname = dirname(__filename);
 
 
 //middlewares
-// app.use(cors())
-app.use(cors({
-    origin: 'https://music-pro-sv7n.onrender.com', 
-    optionsSuccessStatus: 200
-  }));
-
+app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
