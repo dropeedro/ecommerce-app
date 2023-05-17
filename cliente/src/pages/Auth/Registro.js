@@ -21,7 +21,7 @@ const Registro = () => {
         e.preventDefault()
         const objRegistro = {name, lastname, email, password, phone, address}
         try {
-            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, objRegistro)
+            const res = await axios.post(`/api/v1/auth/register`, objRegistro)
             if(res && res.data.success){
                 toast.success(res.data.message)
                 navigate("/login")
