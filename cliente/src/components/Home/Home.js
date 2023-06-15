@@ -6,6 +6,7 @@ import Layout from '../Layout/Layout';
 import Category from './Category/Category';
 import Products from '../Products/Products';
 import { useAuth } from '../../context/auth';
+import Indicators from './Indicators/Indicators';
 
 const Home = () => {
   const [auth, setAuth] = useAuth();
@@ -20,6 +21,7 @@ const Home = () => {
                     <Products/>
                 </div>
             </div>
+            <Indicators/>
         </div>
     </Layout>
   )

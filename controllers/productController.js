@@ -3,6 +3,7 @@ import fs from 'fs'
 import productModel from "../models/productModel.js";
 import categoryModel from "../models/categoryModel.js"
 
+//Crear producto
 export const createProductController = async(req, res) => {
     try {
         const {name, slug, description, price, category, quantity,shipping} = req.fields
@@ -45,7 +46,7 @@ export const createProductController = async(req, res) => {
 
 }
 
-//listar productos
+//Listar productos
 export const getProductsController = async(req, res) => {
     try {
         const products = await productModel.find({}).populate("category").select('-photo').limit(12).sort({createdAt : -1})
@@ -64,6 +65,7 @@ export const getProductsController = async(req, res) => {
     }
 }
 
+//Mostrar un producto
 export const getSingleProductController = async(req, res) => {
     try {
         const product = await productModel.findOne({slug : req.params.slug}).select("-photo").populate("category")
@@ -81,6 +83,7 @@ export const getSingleProductController = async(req, res) => {
     }
 }
 
+//Mostrar imagen del producto
 export const productPhotoController = async(req, res) => {
     try {
         const product = await productModel.findById(req.params.pid).select("photo")
@@ -97,6 +100,7 @@ export const productPhotoController = async(req, res) => {
     }
 }
 
+//Editar productos
 export const updateProductController = async(req, res) => {
     try {
         console.log(req)
@@ -139,6 +143,7 @@ export const updateProductController = async(req, res) => {
 
 }
 
+//Eliminar producto
 export const deleteProductController = async(req, res) => {
     try {
         const {id} = req.params
@@ -156,6 +161,7 @@ export const deleteProductController = async(req, res) => {
     }
 }
 
+//Funcion para filtrar productos
 export const productFilterController = async (req, res) => {
     try {
       const { checked, radio } = req.body;
