@@ -69,7 +69,7 @@ export const commit = asyncHandler(async function (request, response, next) {
       "Transbank que hemos recibido la transacción ha sido recibida exitosamente. En caso de que " +
       "no se confirme la transacción, ésta será reversada.";
 
-    response.render("webpay_plus/commit", {
+    response.json({
       step,
       stepDescription,
       viewData,
@@ -89,7 +89,7 @@ export const commit = asyncHandler(async function (request, response, next) {
     stepDescription = "En este paso luego de abandonar el formulario no es necesario realizar la confirmación ";
   }
 
-  response.render("webpay_plus/commit-error", {
+  response.json({
     step,
     stepDescription,
     viewData,

@@ -24,6 +24,7 @@ import SingleProductPage from './components/SingleProductPage/SingleProductPage'
 import Category from './components/Category/Category';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
+import Order from './components/Checkout/Order/Order';
 import LoginCheckout from './pages/Auth/LoginCheckout';
 import Catalogo from './components/Catalogo/Catalogo';
 
@@ -60,6 +61,7 @@ function App() {
         <Route path='/catalogo' element={<Catalogo/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/order' element={<Order/>}/>
         <Route path='/contacto' element={<Contacto/>}/>
         <Route path='/*' element={<Error/>}/>
       </Routes>

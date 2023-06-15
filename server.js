@@ -25,8 +25,6 @@ const app = express()
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-
-
 //middlewares
 app.use(cors())
 app.use(express.json())
@@ -45,8 +43,6 @@ app.use(express.static(path.join(__dirname, './cliente/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './cliente/build/index.html'));
 });
-
-
 
 //rest api
 app.get('/', (req,res) => {
