@@ -3,12 +3,12 @@
 import pkg from 'transbank-sdk';
 const {WebpayPlus} = pkg
 import asyncHandler from '../util/async_handler.js';
+import pug from 'pug';
 
 export const create = asyncHandler(async function (request, response, next) {
   let buyOrder = "O-" + Math.floor(Math.random() * 10000) + 1;
   let sessionId = "S-" + Math.floor(Math.random() * 10000) + 1;
   const subTotal = parseFloat(request.query.subTotal)
-  // let amount = Math.floor(Math.random() * 1000) + 1001;
   let amount = subTotal
   let returnUrl =
     request.protocol + "://" + request.get("host") + "/webpay_plus/commit";
@@ -69,12 +69,16 @@ export const commit = asyncHandler(async function (request, response, next) {
       "Transbank que hemos recibido la transacción ha sido recibida exitosamente. En caso de que " +
       "no se confirme la transacción, ésta será reversada.";
 
-    response.json({
-      step,
-      stepDescription,
-      viewData,
-    });
+    
+    // const frontendURL = 'http://localhost:3000/orden_compra';
+    // response.redirect(`${frontendURL}?token=${token}&commitResponse=${commitResponse}`);
+    const frontendURL = 'http://localhost:3000/orden_compra';
+    const encodedCommitResponse = encodeURIComponent(JSON.stringify(commitResponse));
+    response.redirect(`${frontendURL}?token=${token}&commitResponse=${encodedCommitResponse}`);
+
+
     return;
+
   }
   else if (!token && !tbkToken) {//Flujo 2
     step = "El pago fue anulado por tiempo de espera.";
