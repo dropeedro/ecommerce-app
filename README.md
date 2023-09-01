@@ -9,6 +9,8 @@ Un ecommerce profesional para la venta online de una tienda de música. Cuenta c
 #### Frontend
 - React js
 - SASS
+  
+Se integró la API de transbank para el pago online.
 
 Y será desplegado en un heroku server
 # Cómo empezar
